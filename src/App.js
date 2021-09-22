@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 // import FormVadiation from './Form-vadiation';
-import Oantuxi from './Baitapoantuxi';
+// import Oantuxi from './Baitapoantuxi';
+import Bookingmovie from './bookingmoivie';
 
 function App() {
   return (
@@ -9,7 +10,12 @@ function App() {
        {/* <Home /> */}
        {/* <Cycle /> */}
        {/* <FormVadiation/> */}
-       <Oantuxi/>
+
+       {/* <Oantuxi/> */}
+       {/* <br/> */}
+
+       <Bookingmovie/>
+       
     </div>
   );
 }
