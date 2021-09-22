@@ -1,4 +1,4 @@
-import { DAT_GHE, HUY_GHE } from "../types/BaiTapDatVeType";
+import { DAT_GHE, HUY_GHE } from "../types/BookingType";
 
 
 const stateDefault = {
@@ -8,8 +8,6 @@ const stateDefault = {
     ]
 }
 
-
-
 const BookingMovieReducer = (state = stateDefault, action) => {
 
     switch (action.type) {
@@ -18,7 +16,7 @@ const BookingMovieReducer = (state = stateDefault, action) => {
             let index = danhSachGheDangDatUpdate.findIndex(gheDangDat => gheDangDat.soGhe === action.ghe.soGhe);
             if (index !== -1) {
                 danhSachGheDangDatUpdate.splice(index, 1);
-            }else {  
+            } else {  
                 danhSachGheDangDatUpdate.push(action.ghe)
             }
             state.danhSachGheDangDat = danhSachGheDangDatUpdate;

@@ -1,26 +1,31 @@
 import React, { Component } from "react";
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import { datGheAction } from "../redux/actions/BookingAction";
 
- class Hangghe extends Component {
+class Hangghe extends Component {
   renderGhe = () => {
     return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
-      if (index === 0) {
-        return <span className="rowNumber">{ghe.soGhe}</span>;
-      }
-
       let cssGheDaDat = "";
       let disabled = false;
+
+      // if (index === 0) {
+      //   return <span className="rowNumber">{ghe.soGhe}</span>;
+      // }
+
       if (ghe.daDat) {
         cssGheDaDat = "gheDuocChon";
         disabled = true;
       }
+      let cssGheDangDat = ''
+      let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.soGhe = ghe.soGhe)
+      if(indexGheDangDat !== -1){
+        cssGheDangDat = ''
+      } 
       return (
         <button
-          onClick={() => {
-            alert(123);
-          }}
+          onClick={() => {this.props.datGhe(ghe)}}
           disabled={disabled}
-          className={`ghe ${cssGheDaDat}`}
+          className={`ghe ${cssGheDaDat} ${cssGheDangDat}`}
           key={index}
         >
           {ghe.soGhe}
@@ -64,4 +69,11 @@ const mapStateToProps = state => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    datGhe: (ghe)=>{
+      dispatch(datGheAction(ghe))
+    }
+  }
+}
 export default connect(mapStateToProps) (Hangghe)

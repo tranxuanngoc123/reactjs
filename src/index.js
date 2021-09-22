@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import rootReducer from './redux/roorReducer';
+import rootReducer from './redux/reducer/roorReducer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
